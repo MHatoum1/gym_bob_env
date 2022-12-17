@@ -228,18 +228,25 @@ class BOBEnv(gym.Env):
         # Calculate difference between dealer's balls
         dealer_difference = self._score_hand(self.dealer_balls)
 
-        # Player wins if their difference is between 5 and 15
-        if 5 <= player_difference <= 15:
-            return 1
-        # Dealer wins if their difference is between 5 and 15
-        elif 5 <= dealer_difference <= 15:
+        # Player loses if their difference is less than 5 and or greated than 15
+        if player_difference<5 or player_difference > 15:
             return -1
+        # Player wins if the dealer's difference is less than 5 and or greated than 15
+        elif dealer_difference<5 or dealer_difference > 15:
+            return 1
         # Player wins if their difference is greater than dealer's difference
         elif player_difference > dealer_difference:
             return 1
-        # Dealer wins if their difference is greater than player's difference
-        elif dealer_difference > player_difference:
+        # Player loses if their difference is less than dealer's difference
+        elif player_difference < dealer_difference:
             return -1
+        # In case both has the same difference
+        elif dealer_difference == player_difference:
+            # The player with higher max wins
+            if (max(self.player) > max(self.dealer)):
+                return  1 
+            else:
+                return -1 
         # Draw if both differences are the same
         else:
             return 0
