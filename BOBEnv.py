@@ -57,6 +57,8 @@ class BOBEnv(gym.Env):
         Returns:
             The initial observation of the environment.
         """
+        # Refill the bowl with numbered balls from 1 to 50
+        self.bowl = list(range(1, 51))
 
         # Reset bowl
         random.shuffle(self.bowl)
