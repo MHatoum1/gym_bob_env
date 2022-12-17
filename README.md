@@ -1,45 +1,32 @@
 # Introduction
-Bowl of Balls environment for OpenAI Gym
+The BOBEnv is a custom gym environment for the Bowl of Balls (BOB) game.
 
 ## Game Rules:
-Bowl of balls (BOB) is a game where we have a bowl with numbered balls (from 1 till 50).
-* The player selects two balls at random (initial state) then calculates the difference between the balls.
-* The goal is to have this difference between 5 and 15.
-* The player has the right to return one of the two balls (min or max) and get a new one. He can do this up to 3 times.
+In the BOB game, the player has a bowl with numbered balls (from 1 till 50). The player selects two balls at random (initial state) then calculates the difference between the balls. The goal is to have this difference between 5 and 15. The player has the right to return one of the two balls (min or max) and get a new one. He can do this up to 3 times.
+
+The player with the highest ball difference wins. In case of a draw, the player with the highest ball wins.
 
 ##  Winning Conditions
-The player with highest ball difference __wins__.
-In case of __draw__ then the player with highest ball wins.
+The player with the highest ball difference between 5 and 15 wins. In case of a draw, the player with the highest ball wins.
 
 ##  Prerequisites
-OpenAI Gym is required. Please download [OpenAI Gym guide](https://github.com/openai/gym) by performing the below scripts
-```
-git clone https://github.com/openai/gym.git
-cd gym
-```
+* Python 3.6 or higher
+* gym
+* numpy
 
-##  Installation
+##  Installation as a gym environment
 
-Copy the folder gym_bob to [gym/envs](<https://github.com/openai/gym/blob/master/gym/envs>) 
+To install BOBEnv as a gym environment, follow these steps:
 
-Edit [gym/envs/__ init __.py](<https://github.com/openai/gym/blob/master/gym/envs/__init__.py>) by adding the following:
-```
-register(
-    id='BOB-v0',
-    entry_point='gym.envs.gym_bob.gym_bob:BOBEnv'
-)
-```
-Install gym using the following command
-```
-pip install -e .
-```
+1. Clone this repository or download the BOBEnv.py file.
+2. In your gym project, import the BOBEnv module: __from BOBEnv import BOBEnv__
+3. To create an instance of the environment, use __env = BOBEnv()__
 
 ##  Usage
 
-To test the environment you can just do:
+To use BOBEnv as a gym environment, follow these steps:
 
-```
-import gym
-env = gym.make("BOB-v0")
-env.reset()
-```
+1. Create an instance of the environment: __env = BOBEnv()__
+2. Reset the environment to its initial state: __observation = env.reset()__
+3. Take an action in the environment: __observation, reward, done, info = env.step(action)__
+4. Repeat steps 2 and 3 until the game is finished (__done__ is __True__).
