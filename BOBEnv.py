@@ -243,15 +243,10 @@ class BOBEnv(gym.Env):
         # In case both has the same difference
         elif dealer_difference == player_difference:
             # The player with higher max wins
-            if (max(self.player) > max(self.dealer)):
+            if (max(self.player_balls) > max(self.dealer_balls)):
                 return  1 
             else:
                 return -1 
         # Draw if both differences are the same
         else:
             return 0
-
-
-
-
-
