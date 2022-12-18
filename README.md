@@ -2,7 +2,7 @@
 The BOBEnv is a custom gym environment for the Bowl of Balls (BOB) game.
 
 ## Game Rules:
-In the BOB game, the player has a bowl with numbered balls (from 1 till 50). The player selects two balls at random (initial state) then calculates the difference between the balls. The goal is to have this difference between 5 and 15. The player has the right to return one of the two balls (min or max) and get a new one. He can do this up to 3 times.
+In the [BOB game](https://medium.datadriveninvestor.com/bowl-of-balls-bob-new-openai-gym-environment-fa4af856f58c), the player has a bowl with numbered balls (from 1 till 50). The player selects two balls at random (initial state) then calculates the difference between the balls. The goal is to have this difference between 5 and 15. The player has the right to return one of the two balls (min or max) and get a new one. He can do this up to 3 times.
 
 The player with the highest ball difference wins. In case of a draw, the player with the highest ball wins.
 
